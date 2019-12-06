@@ -21,7 +21,7 @@ class App extends React.Component {
   addTodoList = userImput => {
     const newItem = {
       name:userImput,
-      done:false,
+      studied:false,
       id:Date.now()
     }
     //this is placing our new card created on top by variable (newitem) as a object of array in our state;
@@ -31,9 +31,27 @@ class App extends React.Component {
     })
   }
   
+  toggleTodo = todoId => {
+  this.setState({
+    todo: this.state.todo.map(item => {
+      if (todoId === item.id) {
+        return {
+          ...item,
+          studied: !item.studied
+        };
+      }
+      else {
+        return item
+      }
+    })
+
+  })
+
+  }
+
 
   render() {
-    console.log(this.state.todo)
+   
     return (
       <div>
         <div>
@@ -42,7 +60,7 @@ class App extends React.Component {
         <TodoForm addTodoList={this.addTodoList} />
         </div>
         {/*here im passing the data coming from state on App.js to TodoList in order to map it once there*/}
-      <TodoList todo={this.state.todo} />
+      <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo} />
       </div>
     );
   }

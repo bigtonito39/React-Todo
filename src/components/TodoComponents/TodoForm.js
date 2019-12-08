@@ -2,6 +2,7 @@ import React from "react";
 
 class TodoForm extends React.Component {
     constructor(props){
+        console.log(props)
     super(props);
         //Creating a state that will take the users imput from the form
         this.state = {
@@ -23,15 +24,14 @@ class TodoForm extends React.Component {
         //this will reset the form when the data gets submitted
         this.setState({userImput:""})
     }
-    submitEraser =event => {
-        event.preventDefault();
-       
-    }
+  
    
     render(){
         return(
-            <div>
+            
+            <div className="Search-Field-Zone">
               <form onSubmit={this.submitHandler}>
+                  
                 <input 
                 type="text"
                 name="userImput"
@@ -39,10 +39,13 @@ class TodoForm extends React.Component {
                 //notice here how i have to use this to reference to the function on top since this is a class component.
                 onChange={this.changeHandler}
                  />
-                 <button type="submit">Add Subject</button>
-             
+                 <button className="buttons" type="submit">Add Subject</button>
+                 
             </form>
-            <button onSubmit={this.submitEraser} type="submit">Clear Done Subjects</button>
+            <form onSubmit={this.props.removeTodo}>
+            <button  stype ="submit" className="buttons">Clear Done Subjects</button>
+            </form>
+            
             </div>
           
         )

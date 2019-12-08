@@ -52,24 +52,30 @@ class App extends React.Component {
 
   }
  
-  removeTodo(name){
-    this.setState({
-        todo: this.state.todo.filter(el => el !== name)
-    })
-}
+  removeTodo = e => {
+    console.log(e)
+    e.preventDefault();
+    //This filter method here will filter through the items that studied is 
+    //false to keep them. This way whatever is "true" will get filter out meaning that
+    //when i click the "clear done Subject button" those items will get no longer
+    //rendered.
+    let todo = this.state.todo.filter(item => !item.studied);
+    this.setState({ todo });
+    console.log(todo)
+  };
 
 
   render() {
-   console.log(this.state.todo)
-    return (
-      <div>
-        <div>
+       return (
+      <div className="Main-Div">
         <h2>Welcome to your Todo App!</h2>
+        <div>
+        
         {/* Here im passing as props the function addTodoList to TodoForm Component */ }
-        <TodoForm addTodoList={this.addTodoList} />
+        <TodoForm addTodoList={this.addTodoList} removeTodo={this.removeTodo} />
         </div>
         {/*here im passing the data coming from state on App.js to TodoList in order to map it once there*/}
-      <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo} removeTodo={this.removeTodo} />
+      <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo}  />
       </div>
     );
   }

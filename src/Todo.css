@@ -1,0 +1,59 @@
+.Main-Div{
+  width:50%;
+  margin-left:20%;
+  margin-top:10%;
+  background-color:#E0E0E0;
+  padding:5%;
+  border-radius: 100px;
+  box-shadow:20px 25px;
+}
+h2{
+ margin-left:35%;
+ font-size:2rem;
+
+}
+strong{
+  color:red;
+}
+
+.Todo-list {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-between;
+  width: 50%;
+  margin: 2% auto;
+}
+
+  .item {
+    background-color: #e64944;
+    width: 45%;
+    text-align: center;
+    margin: 4px 0;
+    padding: 20px 8px;
+    border-radius: 13px;
+    cursor: pointer;
+  }
+
+  .item.studied {
+    background-color: #d17d7c;
+    text-decoration: line-through;
+  }
+  .clear {
+    display:none
+  }
+  .Search-Field-Zone{
+    display:flex;
+    justify-content: center;
+  }
+  .buttons{
+    background-color:#e64944;
+    padding:5px;
+    border-radius: 6px;
+    border:none;
+    margin :0 10px;
+    padding:10px;
+    cursor:pointer;
+  }
+  .buttons:hover{
+    background-color:#d17d7c;
+  }

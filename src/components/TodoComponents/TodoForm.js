@@ -2,7 +2,7 @@ import React from "react";
 
 class TodoForm extends React.Component {
     constructor(props){
-        super(props);
+    super(props);
         //Creating a state that will take the users imput from the form
         this.state = {
 
@@ -23,10 +23,15 @@ class TodoForm extends React.Component {
         //this will reset the form when the data gets submitted
         this.setState({userImput:""})
     }
-
+    submitEraser =event => {
+        event.preventDefault();
+       
+    }
+   
     render(){
         return(
-            <form onSubmit={this.submitHandler}>
+            <div>
+              <form onSubmit={this.submitHandler}>
                 <input 
                 type="text"
                 name="userImput"
@@ -34,8 +39,12 @@ class TodoForm extends React.Component {
                 //notice here how i have to use this to reference to the function on top since this is a class component.
                 onChange={this.changeHandler}
                  />
-                 <button type="submit">Add</button>
+                 <button type="submit">Add Subject</button>
+             
             </form>
+            <button onSubmit={this.submitEraser} type="submit">Clear Done Subjects</button>
+            </div>
+          
         )
     }
 }

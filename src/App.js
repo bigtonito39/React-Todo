@@ -30,7 +30,9 @@ class App extends React.Component {
       todo:[...this.state.todo, newItem]
     })
   }
-  
+  //in this function we are receiving an argument coming from todo.js which is pretty much the
+  //id of the item that was click
+
   toggleTodo = todoId => {
   this.setState({
     todo: this.state.todo.map(item => {
@@ -46,12 +48,19 @@ class App extends React.Component {
     })
 
   })
+  
 
   }
+ 
+  removeTodo(name){
+    this.setState({
+        todo: this.state.todo.filter(el => el !== name)
+    })
+}
 
 
   render() {
-   
+   console.log(this.state.todo)
     return (
       <div>
         <div>
@@ -60,7 +69,7 @@ class App extends React.Component {
         <TodoForm addTodoList={this.addTodoList} />
         </div>
         {/*here im passing the data coming from state on App.js to TodoList in order to map it once there*/}
-      <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo} />
+      <TodoList todo={this.state.todo} toggleTodo={this.toggleTodo} removeTodo={this.removeTodo} />
       </div>
     );
   }

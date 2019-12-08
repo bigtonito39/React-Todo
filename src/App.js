@@ -68,7 +68,8 @@ class App extends React.Component {
   render() {
        return (
       <div className="Main-Div">
-        <h2>Welcome to your Subject Todo App!</h2>
+        <h2>Welcome to your Subject To-Do App!</h2>
+        <hr />
         <div>
         
         {/* Here im passing as props the function addTodoList to TodoForm Component */ }
